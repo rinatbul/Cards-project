@@ -3,7 +3,8 @@ import s from './SignUp.module.css'
 import React, {useState} from "react";
 import {Field, Form, Formik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
-import {loginAC, loginTC} from "../../../state/authReduser";
+import {loginAC, loginTC} from "../../state/authReduser";
+import {Link} from "react-router-dom";
 
 export type SignInType = {
     email: string
@@ -29,7 +30,7 @@ export const SignUp = () => {
 
     return (
         <div className={s.wrapper}>
-            <header>Sign In</header>
+            <header className={s.header}>Sign Up</header>
             <Formik
                 initialValues={{login: "", password: "", email: ""}}
                 validate={values => {
@@ -78,8 +79,8 @@ export const SignUp = () => {
                             value={values.password}
                         />
                         {errors.password && touched.password && errors.password}
-                        <button type="submit" disabled={isSubmitting}>
-                            Submit
+                        <button className={s.button} type="submit" disabled={isSubmitting}>
+                            <Link className={s.link} to="/">Submit</Link>
                         </button>
                     </form>
                 )}

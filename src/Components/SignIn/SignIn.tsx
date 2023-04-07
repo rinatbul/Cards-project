@@ -3,7 +3,8 @@ import s from './SignIn.module.css'
 import React, {useState} from "react";
 import {Field, Form, Formik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
-import {loginTC} from "../../../state/authReduser";
+import {loginTC} from "../../state/authReduser";
+import {Link} from "react-router-dom";
 
 export type SignInType = {
     email: string
@@ -21,7 +22,7 @@ export const SignIn = () => {
 
     return (
         <div className={s.wrapper}>
-            <header>Sign In</header>
+            <header className={s.header}>Sign In</header>
             <Formik
                 initialValues={{password: "", email: ""}}
                 validate={values => {
@@ -42,7 +43,8 @@ export const SignIn = () => {
                       isSubmitting,
                       /* and other goodies */
                   }) => (
-                    <form onSubmit={handleSubmit}>
+                    <form className={s.form} onSubmit={handleSubmit}>
+                        e-mail
                         <input
                             type="email"
                             name="email"
@@ -51,6 +53,7 @@ export const SignIn = () => {
                             value={values.email}
                         />
                         {errors.email && touched.email && errors.email}
+                        password
                         <input
                             type="password"
                             name="password"
@@ -59,10 +62,15 @@ export const SignIn = () => {
                             value={values.password}
                         />
                         {errors.password && touched.password && errors.password}
-                        <button type="submit" disabled={isSubmitting}>
+                        <button className={s.button} type="submit" disabled={isSubmitting}>
                             Submit
                         </button>
+
+                        <button className={s.button}>
+                            <Link className={s.link} to="/registration">Register</Link>
+                        </button>
                     </form>
+
                 )}
             </Formik>
 

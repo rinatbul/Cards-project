@@ -1,17 +1,22 @@
 import React from 'react';
 import './App.css';
-import {Routes, Route} from 'react-router-dom'
-import {SignIn} from "./Components/Authorization/SignIn/SignIn";
-import {SignUp} from "./Components/Authorization/SignUp/SignUp";
+import {Routes, Route, Link} from 'react-router-dom'
+import {SignIn} from "./Components/SignIn/SignIn";
+import {SignUp} from "./Components/SignUp/SignUp";
+import Layout from "./Components/Layout/Layout";
+
 // import Layout from "./components/Layout";
 
 function App() {
     return (
         <div className="App">
+
             <Routes>
-                <Route path={'/'} element={<SignIn/>}/>
-                <Route path={'/login'} element={<SignIn/>}/>
-                <Route path={'/registration'} element={<SignUp/>}/>
+                <Route path={'/'} element={<Layout/>}>
+                    <Route path={''} element={<SignIn/>}/>
+                    <Route path={'login'} element={<SignIn/>}/>
+                    <Route path={'registration'} element={<SignUp/>}/>
+                </Route>
             </Routes>
         </div>
     );
