@@ -79,9 +79,9 @@ export const SignUp = () => {
                             value={values.password}
                         />
                         {errors.password && touched.password && errors.password}
-                        <button className={s.button} type="submit" disabled={isSubmitting}>
+                        {/*<button className={s.button} type="submit" disabled={isSubmitting}>*/}
                             <Link className={s.link} to="/">Submit</Link>
-                        </button>
+                        {/*</button>*/}
                     </form>
                 )}
             </Formik>

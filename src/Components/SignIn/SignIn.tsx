@@ -17,7 +17,7 @@ export const SignIn = () => {
     const [password, setPassword] = useState('1qazxcvBG')
     const [rememberMe, setRememberMe] = useState(false)
 
-    const todolists = useSelector<any>(state => state.auth)
+    const auth = useSelector<any>(state => state.auth)
     let dispatch = useDispatch<any>()
 
     return (
@@ -62,13 +62,20 @@ export const SignIn = () => {
                             value={values.password}
                         />
                         {errors.password && touched.password && errors.password}
+                        <div>
+                            <input onClick={()=>{setRememberMe(true)}} type="checkbox"/>
+                            <span>Remember me</span>
+                        </div>
+
+                        <Link className={s.link} to="/forgot">forgot password?</Link>
+
                         <button className={s.button} type="submit" disabled={isSubmitting}>
                             Submit
                         </button>
 
-                        <button className={s.button}>
+                        {/*<button className={s.button}>*/}
                             <Link className={s.link} to="/registration">Register</Link>
-                        </button>
+                        {/*</button>*/}
                     </form>
 
                 )}
