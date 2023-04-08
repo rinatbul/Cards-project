@@ -54,7 +54,6 @@ const Forgot = () => {
 
                 )}
             </Formik>
-
         </div>
     );
 };

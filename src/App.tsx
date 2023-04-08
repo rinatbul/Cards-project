@@ -5,6 +5,8 @@ import {SignIn} from "./Components/SignIn/SignIn";
 import {SignUp} from "./Components/SignUp/SignUp";
 import Layout from "./Components/Layout/Layout";
 import Forgot from "./Components/Forgot/Forgot";
+import SetPass from "./Components/SetPass/SetPass";
+import Profile from "./Components/Profile/Profile";
 
 // import Layout from "./components/Layout";
 
@@ -18,6 +20,8 @@ function App() {
                     <Route path={'login'} element={<SignIn/>}/>
                     <Route path={'registration'} element={<SignUp/>}/>
                     <Route path={'forgot'} element={<Forgot/>}/>
+                    <Route path={'setPass'} element={<SetPass/>}/>
+                    <Route path={'profile'} element={<Profile/>}/>
                 </Route>
             </Routes>
         </div>
