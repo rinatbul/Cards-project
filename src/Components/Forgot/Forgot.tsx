@@ -1,7 +1,8 @@
 import React from 'react';
 import {Formik} from "formik";
 import {loginTC} from "../../state/authReduser";
-import s from "./Forgot.module.css";
+// import s from "./Forgot.module.css";
+import s from "./../../comon/FormWrapper.module.css";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -12,13 +13,14 @@ const Forgot = () => {
     let dispatch = useDispatch<any>()
     return (
         <div className={s.wrapper}>
+            <h1 className={s.header}>Forgot your password</h1>
             <Formik
                 initialValues={{password: "", email: ""}}
                 validate={values => {
                     return {};
                 }}
                 onSubmit={(values, { setSubmitting }) => {
-                    dispatch(loginTC(values.email, values.password))
+                    // dispatch(loginTC(values.email, values.password))
                     setSubmitting(false)
                 }}
             >
@@ -33,18 +35,21 @@ const Forgot = () => {
                       /* and other goodies */
                   }) => (
                     <form className={s.form} onSubmit={handleSubmit}>
-                        e-mail
-                        <input
-                            type="email"
-                            name="email"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.email}
-                        />
+                        <div className={s.inputWrapper}>
+                            <label htmlFor="email">email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.email}
+                            />
+                        </div>
+
                         {errors.email && touched.email && errors.email}
 
                         <button className={s.button}>
-                            send
+                            <Link to="/setPass">send</Link>
                         </button>
 
                         {/*<button className={s.button}>*/}

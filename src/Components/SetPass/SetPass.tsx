@@ -1,5 +1,5 @@
 import React from 'react';
-import s from "./SetPass.module.css";
+import s from "./../../comon/FormWrapper.module.css";
 import {Formik} from "formik";
 import {loginTC} from "../../state/authReduser";
 import {Link} from "react-router-dom";
@@ -12,13 +12,14 @@ const SetPass = () => {
     return (
         <div>
             <div className={s.wrapper}>
+                <h1 className={s.header}>Set new password</h1>
                 <Formik
                     initialValues={{password: "", email: ""}}
                     validate={values => {
                         return {};
                     }}
                     onSubmit={(values, {setSubmitting}) => {
-                        dispatch(loginTC(values.email, values.password))
+                        // dispatch(loginTC(values.email, values.password))
                         setSubmitting(false)
                     }}
                 >
@@ -33,23 +34,30 @@ const SetPass = () => {
                           /* and other goodies */
                       }) => (
                         <form className={s.form} onSubmit={handleSubmit}>
-                            enter new password
-                            <input
-                                type="password"
-                                name="password"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.email}
-                            />
+
+                            <div className={s.inputWrapper}>
+                                <label htmlFor="password">enter new password</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.email}
+                                />
+                            </div>
+
                             {errors.email && touched.email && errors.email}
-                            Re-enter your password
-                            <input
-                                type="password"
-                                name="password"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.email}
-                            />
+
+                            <div className={s.inputWrapper}>
+                                <label htmlFor="password">Re-enter your new password</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.email}
+                                />
+                            </div>
                             {errors.password && touched.password && errors.password}
 
                             <button className={s.button}>

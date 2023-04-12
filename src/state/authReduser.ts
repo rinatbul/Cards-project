@@ -36,10 +36,10 @@ export const loginAC = (email: string, publicCardPacksCount: number, name: strin
     return {type: 'LOGIN', email, publicCardPacksCount, name, created, updated}
 }
 
-export const loginTC = (email: string, password: string) => {
+export const loginTC = (email: string, password: string, rememberMe: boolean) => {
     return (dispatch: Dispatch) => {
         try {
-            axios.post('https://cards-nya-back-production.up.railway.app/2.0/auth/login', {email, password})
+            axios.post('https://cards-nya-back-production.up.railway.app/2.0/auth/login', {email, password, rememberMe})
                 .then((response) => {
                     console.log(response.data)
                     const {email, publicCardPacksCount, name, created, updated} = response.data

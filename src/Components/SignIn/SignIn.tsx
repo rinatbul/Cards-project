@@ -1,5 +1,6 @@
 import axios from 'axios'
-import s from './SignIn.module.css'
+// import s from './SignIn.module.css'
+import s from "./../../comon/FormWrapper.module.css";
 import React, {useState} from "react";
 import {Field, Form, Formik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
@@ -22,14 +23,14 @@ export const SignIn = () => {
 
     return (
         <div className={s.wrapper}>
-            <header className={s.header}>Sign In</header>
+            <h1 className={s.header}>Sign In</h1>
             <Formik
-                initialValues={{password: "", email: ""}}
+                initialValues={{password: "", email: "", rememberMe: false}}
                 validate={values => {
-                   return {};
+                    return {};
                 }}
-                onSubmit={(values, { setSubmitting }) => {
-                    dispatch(loginTC(values.email, values.password))
+                onSubmit={(values, {setSubmitting}) => {
+                    dispatch(loginTC(values.email, values.password, values.rememberMe))
                     setSubmitting(false)
                 }}
             >
@@ -44,27 +45,43 @@ export const SignIn = () => {
                       /* and other goodies */
                   }) => (
                     <form className={s.form} onSubmit={handleSubmit}>
-                        e-mail
-                        <input
-                            type="email"
-                            name="email"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.email}
-                        />
+                        <div className={s.inputWrapper}>
+                            <label htmlFor="email">email</label>
+                            <input
+                                className={s.input}
+                                type="email"
+                                name="email"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.email}
+                            />
+                        </div>
+
                         {errors.email && touched.email && errors.email}
-                        password
-                        <input
-                            type="password"
-                            name="password"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.password}
-                        />
+
+                        <div className={s.inputWrapper}>
+                            <label htmlFor="password">password</label>
+                            <input
+                                className={s.input}
+                                type="password"
+                                name="password"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.password}
+                            />
+                        </div>
                         {errors.password && touched.password && errors.password}
                         <div>
-                            <input onClick={()=>{setRememberMe(true)}} type="checkbox"/>
-                            <span>Remember me</span>
+                            <input
+                                type="checkbox"
+                                name="rememberMe"
+                                id="rememberMe"
+                                onChange={handleChange}
+                                defaultChecked={values.rememberMe}
+                            />
+                            <label htmlFor="rememberMe" >
+                                remember me
+                            </label>
                         </div>
 
                         <Link className={s.link} to="/forgot">forgot password?</Link>
@@ -74,7 +91,7 @@ export const SignIn = () => {
                         </button>
 
                         {/*<button className={s.button}>*/}
-                            <Link className={s.link} to="/registration">Register</Link>
+                        <Link className={s.link} to="/registration">Register</Link>
                         {/*</button>*/}
                     </form>
 

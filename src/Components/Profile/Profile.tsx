@@ -10,7 +10,7 @@ const Profile = () => {
                 <span> 12345</span>
             </div>
             <div>Name:
-                <span> Martinas</span>
+                <span> User Name</span>
             </div>
 
             <div>

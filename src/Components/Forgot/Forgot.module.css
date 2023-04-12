@@ -1,7 +1,13 @@
 .wrapper{
     /*border: 1px solid black;*/
-    margin: 10% auto;
-    width: 50%;
+    position: absolute;
+    width: 413px;
+    height: 600px;
+    left: 434px;
+    top: 60px;
+
+    background: #b1b1d7;
+    border-radius: 8px;
 }
 
 .form {
