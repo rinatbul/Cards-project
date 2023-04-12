@@ -73,6 +73,7 @@ export const SignIn = () => {
                         {errors.password && touched.password && errors.password}
                         <div>
                             <input
+                                className={s.checkbox}
                                 type="checkbox"
                                 name="rememberMe"
                                 id="rememberMe"
