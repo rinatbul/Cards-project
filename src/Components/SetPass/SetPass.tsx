@@ -10,7 +10,7 @@ const SetPass = () => {
     const auth = useSelector<any>(state => state.auth)
     let dispatch = useDispatch<any>()
     return (
-        <div>
+        // <div>
             <div className={s.wrapper}>
                 <h1 className={s.header}>Set new password</h1>
                 <Formik
@@ -72,7 +72,7 @@ const SetPass = () => {
                     )}
                 </Formik>
             </div>
-        </div>
+        // </div>
     );
 };
 

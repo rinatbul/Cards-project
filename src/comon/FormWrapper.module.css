@@ -1,12 +1,22 @@
+.container {
+    /*width: 100%;*/
+    /*height: 100vh;*/
+    /*background-color: gray;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    display: contents;
+}
+
 .wrapper {
     /*border: 1px solid black;*/
     position: absolute;
     width: 413px;
     height: 600px;
-    left: 434px;
-    top: 60px;
+    /*left: 434px;*/
+    top: 160px;
 
-    background: #F9F9FE;
+    background: #c6c6f1;
     border-radius: 8px;
 
     /*display: flex;*/
@@ -52,12 +62,12 @@ input {
     width: 300px;
     border: none;
     outline: none;
-    background-color: #F9F9FE;
-    border-bottom: 2px solid #adabab;
+    background-color: #c6c6f1;
+    border-bottom: 2px solid #878787;
 }
 
 label {
-    color: #adabab;
+    color: #878787;
     font-size: 10px;
 }
 
